@@ -6,140 +6,48 @@
     <title>Battle Royale</title>
     <!-- data tags -->
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
     <section class="main">
         <!-- Characters description and data here -->
-        <div class="charactersBox" style="--i:0s">
-            <div class="characterBox">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
-                </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
+        <div class="charactersBox">
+            <!-- Character Option Boxes-->
+            <div class="characterOptionBoxes">
+                <span class="counter totalCount">14</span>
+                <span class="counter aliveCount">14</span>
+                <span class="counter deadCount">0</span>
+                <button class="button1 sortByName"><span class="material-symbols-outlined">filter_list</span>Name</button>
+                <button class="button1 sortByhealth"><span class="material-symbols-outlined">filter_list</span>Health</button>
+                <button class="button1 addNew" onclick="addCharacters()"><span class="material-symbols-outlined">add</span>Add</button>
             </div>
 
-            <div class="characterBox" style="--i:0.1s">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
-                </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
+            <div class="sideScrollBar">
+                <span class="material-symbols-outlined scrollDown" onclick="scrollToElement('up')">
+                    arrow_upward
+                </span>
+                <span class="material-symbols-outlined scrollDown" onclick="scrollToElement('down')">
+                    arrow_downward
+                </span>
             </div>
+            <!-- insert characters here -->
 
-            <div class="characterBox" style="--i:0.2s">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
+            <div class="characterDetail">
+                <div class="characterDetailHead">
+                    <div class="characterprofileBox characterHero">
+                        <div class="profile"></div>
+                        <span>Aether</span>
+                    </div>
+                    <div class="characterprofileBox characterEnemy">
+                        
+                        <span>Aether</span>
+                        <div class="profile"></div>
+                    </div>
                 </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
-            </div>
-
-            <div class="characterBox" style="--i:0.3s">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
-                </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
-            </div>
-
-            <div class="characterBox" style="--i:0.4s">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
-                </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
-            </div>
-
-            <div class="characterBox" style="--i:0.5s">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
-                </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
-            </div>
-
-            <div class="characterBox" style="--i:0.6s">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
-                </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
-            </div>
-            <div class="characterBox" style="--i:0.7s">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
-                </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
-            </div>
-            <div class="characterBox" style="--i:0.8s">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
-                </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
-            </div>
-            <div class="characterBox" style="--i:0.9s">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
-                </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
-            </div>
-            <div class="characterBox" style="--i:1.0s">
-                <div class="headData">
-                    <p class="name">Kazuha</p>
-                    <div class="health" data-percent="10"></div>
-                </div>
-                <div class="weaponData">
-                    <p class="weapon">Broom</p>
-                    <p class="weapon">Medkit</p>
-                </div>
-                <div class="skillData skillon"></div>
             </div>
         </div>
+        
         <!-- Battle Gound information shows here -->
         <div class="battleGround">
             <p>Kuzuha shot Raiden with a broom</p>

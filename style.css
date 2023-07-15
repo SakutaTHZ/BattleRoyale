@@ -8,6 +8,9 @@
 :root{
     --background: rgb(14, 14, 14);
     --fontColor: white;
+    --goodhealth: #6EDCD9;
+    --damagedhealth: #E15FED;
+    --almostdead:#9254C8;
 }
 
 body{
@@ -22,6 +25,7 @@ body{
     align-items: flex-start;
 }
 .main>*{
+    position: relative;
     width: calc(100vw/4);
     height: 100%;
     border: 1px solid white;
@@ -50,6 +54,12 @@ body{
 }
 
 /* Character Box */
+.charactersBox{
+    position: relative;
+    padding-top: 35px;
+    border: 1px solid white;
+    height: 70%;
+}
 .characterBox{
     position: relative;
     width: 70%;
@@ -64,22 +74,41 @@ body{
     animation: slidein 0.5s linear;
     animation-delay: var(--i);
 }
+.characterBox:hover,.characterBox:hover .skillData{
+    box-shadow: 0 0 5px white;
+}
 .characterBox>.headData{
     display: flex;
     justify-content: space-between;
 }
 .characterBox>.headData>.health{
     position: relative;
-    border: 1px solid lime;
+    border: 1px solid var(--goodhealth);
     width: 60%;
+    border-radius: 5px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
 }
 .characterBox>.headData>.health:before{
+    padding-left: 5px;
     content: attr(data-percent);
     position: absolute;
-    background: lime;
-    width: 10%;
+    background: var(--goodhealth);
+    width: var(--h);
     height: 100%;
     color: var(--background);
+}
+.characterBox>.headData>.health.healthDown{
+    border: 1px solid  var(--damagedhealth);
+}
+.characterBox>.headData>.health.healthDown:before{
+    background: var(--damagedhealth);
+}
+.characterBox>.headData>.health.healthLow{
+    border: 1px solid  var(--almostdead);
+}
+.characterBox>.headData>.health.healthLow:before{
+    background:var(--almostdead);
 }
 .characterBox>.skillData{
     position: absolute;
@@ -89,9 +118,12 @@ body{
     width: 30px;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 10px;
     align-items: center;
     border-radius: 0 5px 5px 0;
+    flex-direction: column;
+    gap: 5px;
 }
 .weaponData{
     display: flex;
@@ -104,7 +136,112 @@ body{
     border-radius: 10px;
     font-size: smaller;
 }
+.skillPoint{
+    width: 10px;
+    aspect-ratio: 1/1;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+.skillPoint.skillon{
+    background:  var(--goodhealth);
+    border:  var(--goodhealth);
+    box-shadow: 0 0 5px  var(--goodhealth);
+}
 /* Character Box */
+
+/* Character option box */
+.characterOptionBoxes{
+    position: fixed;
+    padding: 5px;
+    top: 0;
+    width: 25%;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: var(--background);
+    backdrop-filter: blur(5px);
+}
+.button1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+    gap: 5px;
+    border-radius: 5px;
+    background: var(--background);
+    color: var(--fontColor);
+    border: 0.5px solid white;
+}
+.button1:hover{
+    border-color:  var(--almostdead);
+    color:  var(--almostdead);
+    cursor: pointer;
+}
+.button1>span{
+    font-size: small;
+}
+.counter{
+    padding: 0 5px;
+    border-radius: 5px;
+    color: var(--background);
+}
+.aliveCount{
+    background-color:  var(--goodhealth);
+}
+.deadCount{
+    background-color:  var(--almostdead);
+}
+.totalCount{
+    background-color:  var(--damagedhealth);
+}
+
+.sideScrollBar{
+    position: fixed;
+    height: 63%;
+    left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.scrollDown{
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.scrollDown:hover{
+    border: 1px solid #6EDCD9;
+    cursor: pointer;
+}
+/* Character option box */
+
+/* character Detail */
+.characterDetail{
+    position: fixed;
+    bottom: 0;
+    background-color: var(--background);
+    height: 30%;
+    border: 1px solid white;
+    width: 25%;
+}
+.characterDetailHead{
+    display: flex;
+    border: 1px solid white;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+.characterprofileBox{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+.profile{
+    width: 40px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+/* character Detail */
 
 /* Animations */
 @keyframes slidein {
