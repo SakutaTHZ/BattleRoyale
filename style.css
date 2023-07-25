@@ -61,6 +61,7 @@ body{
     height: 70%;
 }
 .characterBox{
+    /* opacity: .5; */
     position: relative;
     width: 70%;
     border: 0.5px solid white;
@@ -70,9 +71,13 @@ body{
     flex-direction: column;
     gap: 3px;
     transform: translateX(-15px);
-
+    transition: 0.5s ease-in-out;
     animation: slidein 0.5s linear;
     animation-delay: var(--i);
+}
+.show{
+    opacity: 1;
+    transform: translateX(-15px);
 }
 .characterBox:hover,.characterBox:hover .skillData{
     box-shadow: 0 0 5px white;
@@ -226,14 +231,39 @@ body{
 }
 .characterDetailHead{
     display: flex;
+    position: relative;
     border: 1px solid white;
     justify-content: space-between;
     padding: 10px 20px;
+}
+.characterDetailHead::before{
+    content: 'vs';
+    position: absolute;
+    top: 0;
+    right: 42.5%;
+    padding: 0 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+.characterDetailHead::after{
+    content: '';
+    position: absolute;
+    height: 143%;
+    width: 2px;
+    background: white;
+    top: -13px;
+    right: 50%;
+    transform: rotate(-45deg);
 }
 .characterprofileBox{
     display: flex;
     align-items: flex-end;
     gap: 10px;
+}
+.characterprofileBox>.charName{
+    display: flex;
+    flex-direction: column;
 }
 .profile{
     width: 40px;
