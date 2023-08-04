@@ -124,6 +124,15 @@ window.addEventListener("load", () => {
         addCharacters()
     }
     updateCounts()
+
+    var counter = 0;
+    var i = setInterval(function () {
+        generateEvents()
+        counter++;
+        if (counter === 50) {
+            clearInterval(i);
+        }
+    }, 2000);
 });
 
 function updateCounts() {
@@ -148,4 +157,48 @@ function scrollToElement(dir) {
     } else {
         scrollTo[scrollTo.length - 1].scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
     }
+}
+
+const events = [
+    { eventType: 'search', eventIcon: 'travel_explore', eventText: 'Klee found some grenades.' },
+    { eventType: 'skill', eventIcon: 'playing_cards', eventText: 'Klee Used Explosion to demolish Kazuha.' },
+    { eventType: 'heal', eventIcon: 'health_and_safety', eventText: 'Kazuha Used Heal.' },
+    { eventType: 'kill', eventIcon: 'skull', eventText: 'Klee killed Kazuha with a Grenade.' },
+    { eventType: 'challenge', eventIcon: 'comic_bubble', eventText: 'Raiden challenged Klee to a battle.' },
+    { eventType: 'run', eventIcon: 'podiatry', eventText: 'Klee ran away' },
+]
+
+function generateEvents() {
+    var newEvent = document.createElement('div')
+    var parent = document.querySelector('.eventsContainer')
+    let theEvent = events[Math.floor(Math.random() * (events.length - 1))]
+
+    newEvent.className = 'event'
+    newEvent.classList.add(theEvent.eventType)
+    newEvent.innerHTML = `
+        <span class="material-symbols-outlined">
+            ${theEvent.eventIcon}
+        </span>
+        <p>${theEvent.eventText}</p>
+        <p>${displayTime()}</p>
+    `
+    parent.prepend(newEvent)
+}
+
+function displayTime() {
+    var str = "";
+
+    var currentTime = new Date()
+    var hours = currentTime.getHours()
+    var minutes = currentTime.getMinutes()
+    var seconds = currentTime.getSeconds()
+
+    if (minutes < 10) {
+        minutes = "0" + minutes
+    }
+    if (seconds < 10) {
+        seconds = "0" + seconds
+    }
+    str += hours + ":" + minutes + ":" + seconds + " ";
+    return str;
 }
