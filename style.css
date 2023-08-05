@@ -155,6 +155,24 @@ body {
     border-radius: 10px;
     font-size: smaller;
 }
+.weapondata{
+    display: flex;
+    padding: 10px;
+}
+.weaponBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    padding: 5px;
+    gap: 10px;
+}
+
+.weaponHealthBox{
+    border: 1px solid white;
+    width: 100px;
+    height: 10px;
+}
 
 .skillPoint {
     width: 10px;
@@ -566,7 +584,7 @@ body {
 }
 
 .eventsContainer:hover{
-    height: 80%;
+    height: 100%;
 }
 
 .event{

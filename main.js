@@ -129,7 +129,7 @@ window.addEventListener("load", () => {
     var i = setInterval(function () {
         generateEvents()
         counter++;
-        if (counter === 50) {
+        if (counter === 1000) {
             clearInterval(i);
         }
     }, 2000);
@@ -192,6 +192,9 @@ function displayTime() {
     var hours = currentTime.getHours()
     var minutes = currentTime.getMinutes()
     var seconds = currentTime.getSeconds()
+    if(hours>12){
+        hours = hours - 12;
+    }
 
     if (minutes < 10) {
         minutes = "0" + minutes
@@ -199,6 +202,6 @@ function displayTime() {
     if (seconds < 10) {
         seconds = "0" + seconds
     }
-    str += hours + ":" + minutes + ":" + seconds + " ";
+    str += hours + ":" + minutes + ":" + seconds;
     return str;
 }
